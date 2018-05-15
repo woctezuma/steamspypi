@@ -64,7 +64,7 @@ data = steamspypi.api.download(data_request)
 import steamspypi.api
 
 data_request = dict()
-data_request['request'] = 'all'
+data_request['request'] = 'top100in2weeks'
 
 data = steamspypi.api.download(data_request)
 ```
@@ -75,7 +75,7 @@ data = steamspypi.api.download(data_request)
 import steamspypi.api
 
 data_request = dict()
-data_request['request'] = 'all'
+data_request['request'] = 'top100forever'
 
 data = steamspypi.api.download(data_request)
 ```
@@ -86,7 +86,7 @@ data = steamspypi.api.download(data_request)
 import steamspypi.api
 
 data_request = dict()
-data_request['request'] = 'all'
+data_request['request'] = 'top100owned'
 
 data = steamspypi.api.download(data_request)
 ```
