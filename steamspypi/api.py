@@ -95,14 +95,24 @@ def prepare_data_before_saving_to_file(data_as_json):
     return data_as_str
 
 
+def print_data(data_as_json):
+    data_as_str = prepare_data_before_saving_to_file(data_as_json)
+
+    printable_data = data_as_str.replace(', \"', '\n\"')
+
+    print(printable_data)
+
+    return
+
+
 def main():
     data_request = dict()
     data_request['request'] = 'appdetails'
-    data_request['appid'] = '730'
+    data_request['appid'] = '573170'
 
     data = download(data_request)
 
-    print(data)
+    print_data(data)
 
     return True
 
