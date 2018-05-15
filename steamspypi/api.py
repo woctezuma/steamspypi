@@ -114,6 +114,7 @@ def print_data(data_as_json, save_filename=None):
     return True
 
 
+# noinspection SpellCheckingInspection
 def get_cached_database_filename():
     import time
 
@@ -134,30 +135,27 @@ def get_data_folder():
     return data_path
 
 
-def load(json_filename=None, data_request=None):
+def load(data_filename=None):
     import pathlib
     import json
 
-    # Data folder
-    data_path = get_data_folder()
-    # Reference of the following line: https://stackoverflow.com/a/14364249
-    pathlib.Path(data_path).mkdir(parents=True, exist_ok=True)
+    if data_filename is None:
+        # Data folder
+        data_path = get_data_folder()
+        # Reference of the following line: https://stackoverflow.com/a/14364249
+        pathlib.Path(data_path).mkdir(parents=True, exist_ok=True)
 
-    if json_filename is None:
-        json_filename = get_cached_database_filename()
-
-    if data_request is None:
-        # Download Steam's whole catalog of applications
-        data_request = dict()
-        data_request['request'] = 'all'
-
-    data_filename = data_path + json_filename
+        data_filename = data_path + get_cached_database_filename()
 
     try:
         with open(data_filename, 'r', encoding="utf8") as in_json_file:
             data = json.load(in_json_file)
     except FileNotFoundError:
         print("Downloading and caching data from SteamSpy to {}".format(data_filename))
+
+        # Download Steam's whole catalog of applications
+        data_request = dict()
+        data_request['request'] = 'all'
 
         data = download(data_request)
 
