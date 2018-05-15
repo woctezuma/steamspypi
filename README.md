@@ -16,7 +16,7 @@ This repository contains Python code to download data through [SteamSpy API](htt
 
 ## Installation
 
-The code is packaged for [PyPI](https://pypi.org/), so that the installation consists in running:
+The code is packaged for [PyPI](https://pypi.org/project/steamspypi/), so that the installation consists in running:
 ```
 pip install steamspy-api
 ```
