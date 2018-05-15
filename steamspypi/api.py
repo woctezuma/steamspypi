@@ -130,7 +130,7 @@ def get_data_folder():
     return data_path
 
 
-def load(data_request=None, json_filename=None):
+def load(json_filename=None, data_request=None):
     import pathlib
     import json
 
@@ -139,13 +139,13 @@ def load(data_request=None, json_filename=None):
     # Reference of the following line: https://stackoverflow.com/a/14364249
     pathlib.Path(data_path).mkdir(parents=True, exist_ok=True)
 
+    if json_filename is None:
+        json_filename = get_cached_database_filename()
+
     if data_request is None:
         # Download Steam's whole catalog of applications
         data_request = dict()
         data_request['request'] = 'all'
-
-    if json_filename is None:
-        json_filename = get_cached_database_filename()
 
     data_filename = data_path + json_filename
 
