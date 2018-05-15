@@ -1,5 +1,8 @@
 from distutils.core import setup
 
+# noinspection PyUnresolvedReferences
+import setuptools
+
 setup(
     name='steamspypi',
     packages=['steamspypi'],
