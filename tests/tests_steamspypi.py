@@ -33,13 +33,44 @@ class TestSteamSpyPiMethods(unittest.TestCase):
         data_request['request'] = 'genre'
         data_request['genre'] = genre
 
-        print(data_request)
-
         data = steamspypi.api.download(data_request)
 
         print('[genre = {}] #games = {}'.format(genre, len(data)))
 
         self.assertGreater(len(data), 0)
+
+    def test_download_top100in2weeks(self):
+        data_request = dict()
+        data_request['request'] = 'top100in2weeks'
+
+        data = steamspypi.api.download(data_request)
+
+        print('[request = {}] #games = {}'.format(data_request['request'], len(data)))
+
+        self.assertGreater(len(data), 0)
+
+    def test_download_top100forever(self):
+        data_request = dict()
+        data_request['request'] = 'top100forever'
+
+        data = steamspypi.api.download(data_request)
+
+        print('[request = {}] #games = {}'.format(data_request['request'], len(data)))
+
+        self.assertGreater(len(data), 0)
+
+    def test_download_top100owned(self):
+        data_request = dict()
+        data_request['request'] = 'top100owned'
+
+        data = steamspypi.api.download(data_request)
+
+        print('[request = {}] #games = {}'.format(data_request['request'], len(data)))
+
+        self.assertGreater(len(data), 0)
+
+    def test_main(self):
+        self.assertTrue(steamspypi.api.main())
 
 
 if __name__ == '__main__':
