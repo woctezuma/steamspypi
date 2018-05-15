@@ -168,6 +168,6 @@ def load(json_filename=None, data_request=None):
 
 
 if __name__ == '__main__':
-    data_request = {'request': 'appdetails', 'appid': '573170'}
-    data = download(data_request)
-    print_data(data)
+    downloaded_data = download({'request': 'appdetails', 'appid': '573170'})
+
+    print_data(downloaded_data)

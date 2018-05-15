@@ -110,8 +110,12 @@ class TestSteamSpyPiMethods(unittest.TestCase):
         self.assertTrue(all([request in example_api_parameters for request in ['request', 'appid', 'genre']]))
 
     def test_print_data(self):
-        data_request = {'request': 'appdetails', 'appid': '573170'}
+        data_request = dict()
+        data_request['request'] = 'appdetails'
+        data_request['appid'] = '573170'
+
         data = steamspypi.api.download(data_request)
+
         self.assertTrue(steamspypi.api.print_data(data))
 
 
