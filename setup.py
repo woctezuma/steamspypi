@@ -6,6 +6,9 @@ import setuptools
 setup(
     name='steamspypi',
     packages=['steamspypi'],
+    install_requires=[
+        'requests',
+    ],
     version='0.7',
     description='SteamSpy API on PyPI',
     long_description='SteamSpyPI: an API for SteamSpy, written in Python 3.',
