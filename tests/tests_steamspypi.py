@@ -70,7 +70,44 @@ class TestSteamSpyPiMethods(unittest.TestCase):
         self.assertGreater(len(data), 0)
 
     def test_load(self):
+        # Download
         self.assertTrue(steamspypi.api.load())
+        # Load from cache
+        self.assertTrue(steamspypi.api.load())
+
+    def test_check_wrong_request_field(self):
+        data_request = dict()
+        data_request['Hello, world!'] = 'appdetails'
+
+        self.assertFalse(steamspypi.api.check_request(data_request))
+
+    def test_check_wrong_request_value(self):
+        data_request = dict()
+        data_request['request'] = 'Hello, world!'
+
+        self.assertFalse(steamspypi.api.check_request(data_request))
+
+    def test_check_incomplete_request(self):
+        data_request = dict()
+        data_request['request'] = 'appdetails'
+
+        self.assertFalse(steamspypi.api.check_request(data_request))
+
+    def test_check_missing_main_request(self):
+        data_request = dict()
+        data_request['appid'] = '730'
+
+        self.assertFalse(steamspypi.api.check_request(data_request))
+
+    def test_cancel_download(self):
+        data_request = dict()
+        data_request['request'] = 'Hello, world!'
+
+        self.assertEqual(len(steamspypi.api.download(data_request)), 0)
+
+    def test_get_example_api_parameters(self):
+        example_api_parameters = steamspypi.api.get_example_api_parameters()
+        self.assertTrue(all([request in example_api_parameters for request in ['request', 'appid', 'genre']]))
 
     def test_main(self):
         self.assertTrue(steamspypi.api.main())
