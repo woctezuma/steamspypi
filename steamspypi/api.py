@@ -1,6 +1,18 @@
 import requests
 
 
+def fix_request(data_request):
+    if 'appid' in data_request:
+        # Make sure appid are strings, not integers.
+        data_request['appid'] = str(data_request['appid'])
+
+    if 'genre' in data_request:
+        # Make sure genres are submitted with space characters, not with '+' as shown in SteamSpy API documentation.
+        data_request['genre'] = data_request['genre'].replace('+', ' ')
+
+    return data_request
+
+
 def check_request(data_request):
     is_request_correct = True
 
@@ -21,6 +33,8 @@ def check_request(data_request):
 
 def download(data_request):
     is_request_correct = check_request(data_request)
+
+    data_request = fix_request(data_request)
 
     if is_request_correct:
         response = requests.get(get_steamspy_api_url(), params=data_request)
