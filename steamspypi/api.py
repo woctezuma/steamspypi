@@ -111,7 +111,7 @@ def print_data(data_as_json, save_filename=None):
         with open(save_filename, 'w', encoding="utf8") as cache_json_file:
             print(data_as_str, file=cache_json_file)
 
-    return
+    return True
 
 
 def get_cached_database_filename():

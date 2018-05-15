@@ -109,6 +109,11 @@ class TestSteamSpyPiMethods(unittest.TestCase):
         example_api_parameters = steamspypi.api.get_example_api_parameters()
         self.assertTrue(all([request in example_api_parameters for request in ['request', 'appid', 'genre']]))
 
+    def test_print_data(self):
+        data_request = {'request': 'appdetails', 'appid': '573170'}
+        data = steamspypi.api.download(data_request)
+        self.assertTrue(steamspypi.api.print_data(data))
+
 
 if __name__ == '__main__':
     unittest.main()
