@@ -1,6 +1,3 @@
-import requests
-
-
 def fix_request(data_request):
     if 'appid' in data_request:
         # Make sure appid are strings, not integers.
@@ -32,6 +29,8 @@ def check_request(data_request):
 
 
 def download(data_request):
+    import requests
+
     is_request_correct = check_request(data_request)
 
     data_request = fix_request(data_request)
@@ -95,14 +94,73 @@ def prepare_data_before_saving_to_file(data_as_json):
     return data_as_str
 
 
-def print_data(data_as_json):
+def print_data(data_as_json, save_filename=None):
     data_as_str = prepare_data_before_saving_to_file(data_as_json)
 
-    printable_data = data_as_str.replace(', \"', '\n\"')
+    if save_filename is None:
 
-    print(printable_data)
+        printable_data = data_as_str.replace(', \"', '\n\"')
+
+        print(printable_data)
+
+    else:
+        with open(save_filename, 'w', encoding="utf8") as cache_json_file:
+            print(data_as_str, file=cache_json_file)
 
     return
+
+
+def get_cached_database_filename():
+    import time
+
+    json_filename_suffixe = "_steamspy.json"
+
+    # Get current day as yyyymmdd format
+    date_format = "%Y%m%d"
+    current_date = time.strftime(date_format)
+
+    # Database filename
+    json_filename = current_date + json_filename_suffixe
+
+    return json_filename
+
+
+def get_data_folder():
+    data_path = "data/"
+    return data_path
+
+
+def load(data_request=None, json_filename=None):
+    import pathlib
+    import json
+
+    # Data folder
+    data_path = get_data_folder()
+    # Reference of the following line: https://stackoverflow.com/a/14364249
+    pathlib.Path(data_path).mkdir(parents=True, exist_ok=True)
+
+    if data_request is None:
+        # Download Steam's whole catalog of applications
+        data_request = dict()
+        data_request['request'] = 'all'
+
+    if json_filename is None:
+        json_filename = get_cached_database_filename()
+
+    data_filename = data_path + json_filename
+
+    try:
+        with open(data_filename, 'r', encoding="utf8") as in_json_file:
+            data = json.load(in_json_file)
+    except FileNotFoundError:
+        print("Downloading and caching data from SteamSpy")
+
+        data = download(data_request)
+
+        # Cache the json data to a local file
+        print_data(data, data_filename)
+
+    return data
 
 
 def main():
