@@ -22,7 +22,7 @@ class TestSteamSpyPiMethods(unittest.TestCase):
 
         data = steamspypi.api.download(data_request)
 
-        print(['appID = {}] game name = {}'.format(appid, data['name']))
+        print('[appID = {}] game name = {}'.format(appid, data['name']))
 
         expected_game_name = 'Counter-Strike: Global Offensive'
 
@@ -31,7 +31,9 @@ class TestSteamSpyPiMethods(unittest.TestCase):
     def test_download_genre(self, genre='Early Access'):
         data_request = dict()
         data_request['request'] = 'genre'
-        data_request['genre'] = genre.replace(' ', '+')
+        data_request['genre'] = genre
+
+        print(data_request)
 
         data = steamspypi.api.download(data_request)
 

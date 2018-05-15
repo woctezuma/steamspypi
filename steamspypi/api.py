@@ -1,5 +1,3 @@
-import json
-
 import requests
 
 
@@ -44,7 +42,7 @@ def get_example_api_parameters():
     default_api_parameters = {
         'request': 'all',
         'appid': '730',
-        'genre': 'Early+Access',
+        'genre': 'Early Access',
     }
 
     return default_api_parameters
@@ -74,7 +72,9 @@ def get_api_request_requirements():
     return api_request_values
 
 
-def prepare_data_before_saving(data_as_json):
+def prepare_data_before_saving_to_file(data_as_json):
+    import json
+
     # Enforce double-quotes instead of single-quotes. Reference: https://stackoverflow.com/a/8710579/
     data_as_str = json.dumps(data_as_json)
 
