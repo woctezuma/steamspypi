@@ -2,6 +2,10 @@
 
 [![Build status][Build image]][Build] [![Updates][Dependency image]][PyUp] [![Python 3][Python3 image]][PyUp] [![Code coverage][Codecov image]][Codecov]
 
+.. image:: https://badge.fury.io/py/steamspypi.svg
+    :target: SteamSpyPI_
+    :alt: SteamSpyPI page on the Python Package Index
+
   [Build]: https://travis-ci.org/woctezuma/steamspypi
   [Build image]: https://travis-ci.org/woctezuma/steamspypi.svg?branch=master
 
