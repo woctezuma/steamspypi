@@ -21,36 +21,34 @@ This repository contains Python code to download data through [SteamSpy API](htt
 
 The code is packaged for [PyPI](https://pypi.org/project/steamspypi/), so that the installation consists in running:
 
-.. code:: bash
-
+```bash
     pip install steamspypi
+```
 
 ## Usage
 
 ### Returns details for every game. Data is sorted by decreasing number of owners.
 
-.. code:: python
-
+```python
     import steamspypi.api
 
     data_request = dict()
     data_request['request'] = 'all'
 
     data = steamspypi.api.download(data_request)
-
+```
 
 ### Returns details for every game. This time, data is cached locally for offline reuse.
 
-.. code:: python
-
+```python
     import steamspypi.api
 
     data = steamspypi.api.load()
+```
 
 ### Returns details for a given application.
 
-.. code:: python
-
+```python
     import steamspypi.api
 
     data_request = dict()
@@ -58,11 +56,11 @@ The code is packaged for [PyPI](https://pypi.org/project/steamspypi/), so that t
     data_request['appid'] = '730'
 
     data = steamspypi.api.download(data_request)
+```
 
 ### Returns all games in a given genre.
 
-.. code:: python
-
+```python
     import steamspypi.api
 
     data_request = dict()
@@ -70,36 +68,37 @@ The code is packaged for [PyPI](https://pypi.org/project/steamspypi/), so that t
     data_request['genre'] = 'Early Access'
 
     data = steamspypi.api.download(data_request)
+```
 
 ### Returns Top 100 games, with respect to the number of players in the last two weeks.
 
-.. code:: python
-
+```python
     import steamspypi.api
 
     data_request = dict()
     data_request['request'] = 'top100in2weeks'
 
     data = steamspypi.api.download(data_request)
+```
 
 ### Returns Top 100 games, with respect to the number of players since March 2009.
 
-.. code:: python
-
+```python
     import steamspypi.api
 
     data_request = dict()
     data_request['request'] = 'top100forever'
 
     data = steamspypi.api.download(data_request)
+```
 
 ### Returns Top 100 games, with respect to the estimated number of owners.
 
-.. code:: python
-
+```python
     import steamspypi.api
 
     data_request = dict()
     data_request['request'] = 'top100owned'
 
     data = steamspypi.api.download(data_request)
+```
