@@ -1,6 +1,6 @@
 # SteamSpyPI: an API for SteamSpy
 
-[![PyPI status][PyPI image]][PyPI] [![Build status][Build image]][Build] [![Updates][Dependency image]][PyUp] [![Python 3][Python3 image]][PyUp] [![Code coverage][Codecov image]][Codecov]
+[![PyPI status][PyPI image]][PyPI] [![Build status][Build image]][Build] [![Updates][Dependency image]][PyUp] [![Python 3][Python3 image]][PyUp] [![Code coverage][Coveralls image]][Coveralls] [![Code coverage BIS][Codecov image]][Codecov]
 
   [PyPI]: https://pypi.python.org/pypi/steamspypi
   [PyPI image]: https://badge.fury.io/py/steamspypi.svg
@@ -12,8 +12,11 @@
   [Dependency image]: https://pyup.io/repos/github/woctezuma/steamspypi/shield.svg
   [Python3 image]: https://pyup.io/repos/github/woctezuma/steamspypi/python-3-shield.svg
 
-  [Codecov]: https://coveralls.io/github/woctezuma/steamspypi?branch=master
-  [Codecov image]: https://coveralls.io/repos/github/woctezuma/steamspypi/badge.svg?branch=master
+  [Coveralls]: https://coveralls.io/github/woctezuma/steamspypi?branch=master
+  [Coveralls image]: https://coveralls.io/repos/github/woctezuma/steamspypi/badge.svg?branch=master
+
+  [Codecov]: https://codecov.io/gh/woctezuma/steamspypi
+  [Codecov image]: https://codecov.io/gh/woctezuma/steamspypi/branch/master/graph/badge.svg
 
 This repository contains Python code to download data through [SteamSpy API](https://steamspy.com/api.php).
 
