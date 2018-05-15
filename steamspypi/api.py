@@ -1,4 +1,4 @@
-def fix_request(data_request):
+def _fix_request(data_request):
     if 'appid' in data_request:
         # Make sure appid are strings, not integers.
         data_request['appid'] = str(data_request['appid'])
@@ -14,14 +14,14 @@ def check_request(data_request):
     is_request_correct = True
 
     for element in data_request:
-        if element not in get_api_parameters():
+        if element not in _get_api_parameters():
             print('Requested {} is not standard.'.format(element))
             is_request_correct = False
 
     try:
         main_request = data_request['request']
 
-        for required_element in get_api_request_requirements()[main_request]:
+        for required_element in _get_api_request_requirements()[main_request]:
             if required_element not in data_request:
                 print('Required {} is missing.'.format(required_element))
                 is_request_correct = False
@@ -37,10 +37,10 @@ def download(data_request):
 
     is_request_correct = check_request(data_request)
 
-    data_request = fix_request(data_request)
+    data_request = _fix_request(data_request)
 
     if is_request_correct:
-        response = requests.get(get_steamspy_api_url(), params=data_request)
+        response = requests.get(_get_steamspy_api_url(), params=data_request)
         data = response.json()
     else:
         print('Incorrect request: download is cancelled.')
@@ -49,7 +49,7 @@ def download(data_request):
     return data
 
 
-def get_steamspy_api_url():
+def _get_steamspy_api_url():
     steamspy_api_url = 'https://steamspy.com/api.php'
 
     return steamspy_api_url
@@ -65,7 +65,7 @@ def get_example_api_parameters():
     return default_api_parameters
 
 
-def get_api_parameters():
+def _get_api_parameters():
     api_parameters = [
         'request',
         'appid',
@@ -75,7 +75,7 @@ def get_api_parameters():
     return api_parameters
 
 
-def get_api_request_requirements():
+def _get_api_request_requirements():
     # For each acceptable request value, specify the required API parameters to be filled in.
     api_request_values = {
         'appdetails': ['appid'],
@@ -89,7 +89,7 @@ def get_api_request_requirements():
     return api_request_values
 
 
-def prepare_data_before_saving_to_file(data_as_json):
+def _prepare_data_before_saving_to_file(data_as_json):
     import json
 
     # Enforce double-quotes instead of single-quotes. Reference: https://stackoverflow.com/a/8710579/
@@ -99,7 +99,7 @@ def prepare_data_before_saving_to_file(data_as_json):
 
 
 def print_data(data_as_json, save_filename=None):
-    data_as_str = prepare_data_before_saving_to_file(data_as_json)
+    data_as_str = _prepare_data_before_saving_to_file(data_as_json)
 
     if save_filename is None:
 
@@ -167,17 +167,7 @@ def load(json_filename=None, data_request=None):
     return data
 
 
-def main():
-    data_request = dict()
-    data_request['request'] = 'appdetails'
-    data_request['appid'] = '573170'
-
-    data = download(data_request)
-
-    print_data(data)
-
-    return True
-
-
 if __name__ == '__main__':
-    main()
+    data_request = {'request': 'appdetails', 'appid': '573170'}
+    data = download(data_request)
+    print_data(data)
