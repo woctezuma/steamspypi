@@ -69,6 +69,9 @@ class TestSteamSpyPiMethods(unittest.TestCase):
 
         self.assertGreater(len(data), 0)
 
+    def test_load(self):
+        self.assertTrue(steamspypi.api.load())
+
     def test_main(self):
         self.assertTrue(steamspypi.api.main())
 
