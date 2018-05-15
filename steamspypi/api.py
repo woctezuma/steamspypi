@@ -117,14 +117,14 @@ def print_data(data_as_json, save_filename=None):
 def get_cached_database_filename():
     import time
 
-    json_filename_suffixe = "_steamspy.json"
+    json_filename_suffix = "_steamspy.json"
 
     # Get current day as yyyymmdd format
     date_format = "%Y%m%d"
     current_date = time.strftime(date_format)
 
     # Database filename
-    json_filename = current_date + json_filename_suffixe
+    json_filename = current_date + json_filename_suffix
 
     return json_filename
 
