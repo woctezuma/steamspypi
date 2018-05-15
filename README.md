@@ -34,6 +34,14 @@ data_request['request'] = 'all'
 data = steamspypi.api.download(data_request)
 ```
 
+### Returns details for every game, exactly as above. However, this time, data is cached locally for later reuse.
+
+```python
+import steamspypi.api
+
+data = steamspypi.api.load()
+```
+
 ### Returns details for a given application.
 
 ```python
