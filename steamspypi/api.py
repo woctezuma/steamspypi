@@ -153,7 +153,7 @@ def load(data_request=None, json_filename=None):
         with open(data_filename, 'r', encoding="utf8") as in_json_file:
             data = json.load(in_json_file)
     except FileNotFoundError:
-        print("Downloading and caching data from SteamSpy")
+        print("Downloading and caching data from SteamSpy to {}".format(data_filename))
 
         data = download(data_request)
 
