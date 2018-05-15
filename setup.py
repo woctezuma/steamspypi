@@ -1,14 +1,16 @@
 from distutils.core import setup
 
 setup(
-    name='steamspy-api',
-    packages=['steamspy-api'],
+    name='steamspypi',
+    packages=['steamspypi'],
     version='0.1',
-    description='SteamSpy API',
+    description='SteamSpy API on PyPI',
     author='Wok',
     author_email='wok@tuta.io',
-    url='https://github.com/woctezuma/steamspy-api-pypi',
-    download_url='https://github.com/woctezuma/steamspy-api-pypi/archive/0.1.tar.gz',
+    url='https://github.com/woctezuma/steamspypi',
+    download_url='https://github.com/woctezuma/steamspypi/archive/0.1.tar.gz',
     keywords=['steam', 'steamspy', 'api'],
-    classifiers=[],
+    classifiers=[
+        'Programming Language :: Python :: 3',
+    ],
 )
