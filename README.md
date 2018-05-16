@@ -33,75 +33,75 @@ pip install steamspypi
 ### Returns details for every game. Data is sorted by decreasing number of owners.
 
 ```python
-import steamspypi.api
+import steamspypi
 
 data_request = dict()
 data_request['request'] = 'all'
 
-data = steamspypi.api.download(data_request)
+data = steamspypi.download(data_request)
 ```
 
 ### Returns details for every game. This time, data is cached locally for offline reuse.
 
 ```python
-import steamspypi.api
+import steamspypi
 
-data = steamspypi.api.load()
+data = steamspypi.load()
 ```
 
 ### Returns details for a given application.
 
 ```python
-import steamspypi.api
+import steamspypi
 
 data_request = dict()
 data_request['request'] = 'appdetails'
 data_request['appid'] = '730'
 
-data = steamspypi.api.download(data_request)
+data = steamspypi.download(data_request)
 ```
 
 ### Returns all games in a given genre.
 
 ```python
-import steamspypi.api
+import steamspypi
 
 data_request = dict()
 data_request['request'] = 'genre'
 data_request['genre'] = 'Early Access'
 
-data = steamspypi.api.download(data_request)
+data = steamspypi.download(data_request)
 ```
 
 ### Returns Top 100 games, with respect to the number of players in the last two weeks.
 
 ```python
-import steamspypi.api
+import steamspypi
 
 data_request = dict()
 data_request['request'] = 'top100in2weeks'
 
-data = steamspypi.api.download(data_request)
+data = steamspypi.download(data_request)
 ```
 
 ### Returns Top 100 games, with respect to the number of players since March 2009.
 
 ```python
-import steamspypi.api
+import steamspypi
 
 data_request = dict()
 data_request['request'] = 'top100forever'
 
-data = steamspypi.api.download(data_request)
+data = steamspypi.download(data_request)
 ```
 
 ### Returns Top 100 games, with respect to the estimated number of owners.
 
 ```python
-import steamspypi.api
+import steamspypi
 
 data_request = dict()
 data_request['request'] = 'top100owned'
 
-data = steamspypi.api.download(data_request)
+data = steamspypi.download(data_request)
 ```
