@@ -39,6 +39,17 @@ class TestSteamSpyPiMethods(unittest.TestCase):
 
         self.assertGreater(len(data), 0)
 
+    def test_download_tag(self, tag='Early Access'):
+        data_request = dict()
+        data_request['request'] = 'tag'
+        data_request['tag'] = tag
+
+        data = steamspypi.api.download(data_request)
+
+        print('[tag = {}] #games = {}'.format(tag, len(data)))
+
+        self.assertGreater(len(data), 0)
+
     def test_download_top100in2weeks(self):
         data_request = dict()
         data_request['request'] = 'top100in2weeks'
@@ -107,7 +118,7 @@ class TestSteamSpyPiMethods(unittest.TestCase):
 
     def test_get_example_api_parameters(self):
         example_api_parameters = steamspypi.api.get_example_api_parameters()
-        self.assertTrue(all([request in example_api_parameters for request in ['request', 'appid', 'genre']]))
+        self.assertTrue(all([request in example_api_parameters for request in ['request', 'appid', 'genre', 'tag']]))
 
     def test_print_data(self):
         data_request = dict()

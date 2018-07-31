@@ -73,6 +73,18 @@ data_request['genre'] = 'Early Access'
 data = steamspypi.download(data_request)
 ```
 
+### Returns all games with a given tag.
+
+```python
+import steamspypi
+
+data_request = dict()
+data_request['request'] = 'tag'
+data_request['tag'] = 'Early Access'
+
+data = steamspypi.download(data_request)
+```
+
 ### Returns Top 100 games, with respect to the number of players in the last two weeks.
 
 ```python

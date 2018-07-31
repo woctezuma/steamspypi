@@ -7,6 +7,10 @@ def _fix_request(data_request):
         # Make sure genres are submitted with space characters, not with '+' as shown in SteamSpy API documentation.
         data_request['genre'] = data_request['genre'].replace('+', ' ')
 
+    if 'tag' in data_request:
+        # Make sure tags are submitted with space characters, not with '+' as shown in SteamSpy API documentation.
+        data_request['tag'] = data_request['tag'].replace('+', ' ')
+
     return data_request
 
 
@@ -60,6 +64,7 @@ def get_example_api_parameters():
         'request': 'all',
         'appid': '730',
         'genre': 'Early Access',
+        'tag': 'Early Access',
     }
 
     return default_api_parameters
@@ -70,6 +75,7 @@ def _get_api_parameters():
         'request',
         'appid',
         'genre',
+        'tag',
     ]
 
     return api_parameters
@@ -80,6 +86,7 @@ def _get_api_request_requirements():
     api_request_values = {
         'appdetails': ['appid'],
         'genre': ['genre'],
+        'tag': ['tag'],
         'top100in2weeks': [],
         'top100forever': [],
         'top100owned': [],
