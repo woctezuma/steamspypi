@@ -1,6 +1,6 @@
 # SteamSpyPI: an API for SteamSpy
 
-[![PyPI status][PyPI image]][PyPI] [![Build status][Build image]][Build] [![Updates][Dependency image]][PyUp] [![Python 3][Python3 image]][PyUp] [![Code coverage][Coveralls image]][Coveralls] [![Code coverage BIS][Codecov image]][Codecov]
+[![PyPI status][PyPI image]][PyPI] [![Build status][Build image]][Build] [![Updates][Dependency image]][PyUp] [![Python 3][Python3 image]][PyUp] [![Code coverage][Coveralls image]][Coveralls] [![Code coverage BIS][Codecov image]][Codecov]  [![Code Quality][codacy image]][codacy]
 
   [PyPI]: https://pypi.python.org/pypi/steamspypi
   [PyPI image]: https://badge.fury.io/py/steamspypi.svg
@@ -18,6 +18,9 @@
   [Codecov]: https://codecov.io/gh/woctezuma/steamspypi
   [Codecov image]: https://codecov.io/gh/woctezuma/steamspypi/branch/master/graph/badge.svg
 
+  [codacy]: https://www.codacy.com/app/woctezuma/steamspypi
+  [codacy image]: https://api.codacy.com/project/badge/Grade/9663fc7c6fda4b3fb8769d6e5e9725e5 
+  
 This repository contains Python code to download data through [SteamSpy API](https://steamspy.com/api.php).
 
 ## Installation
