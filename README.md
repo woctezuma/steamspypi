@@ -33,7 +33,7 @@ pip install steamspypi
 
 ## Usage
 
-### Returns details for every game. Data is sorted by decreasing number of owners.
+### Returns details for 1000 games. Data is sorted by decreasing number of owners.
 
 A `page` parameter is now required for `all` requests, starting at `page=0`.
 You will be able to retrieve 1000 games per `all` request.
@@ -51,7 +51,11 @@ data_request['page'] = '0'
 data = steamspypi.download(data_request)
 ```
 
-### Returns details for every game. This time, data is cached locally for offline reuse.
+### Returns details for 1000 games. This time, data is cached locally for offline reuse.
+
+In this case, `page` is forcibly set to `0`, without any access to this parameter for the end-user.
+
+Local cache is in `data/%Y%m%d_steamspy.json`, without mentioning `page` in the file name for backward compatibility.
 
 ```python
 import steamspypi
