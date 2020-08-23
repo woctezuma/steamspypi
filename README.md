@@ -35,11 +35,18 @@ pip install steamspypi
 
 ### Returns details for every game. Data is sorted by decreasing number of owners.
 
+A `page` parameter is now required for `all` requests, starting at `page=0`.
+You will be able to retrieve 1000 games per `all` request.
+
+Moreover, the API rate is now heavily limited for `all` requests.
+You will be able to issue 1 `all` request per minute.
+
 ```python
 import steamspypi
 
 data_request = dict()
 data_request['request'] = 'all'
+data_request['page'] = '0'
 
 data = steamspypi.download(data_request)
 ```
