@@ -8,6 +8,7 @@ class TestSteamSpyPiMethods(unittest.TestCase):
     def test_download_all(self):
         data_request = dict()
         data_request['request'] = 'all'
+        data_request['page'] = '0'
 
         data = steamspypi.api.download(data_request)
 
@@ -118,7 +119,7 @@ class TestSteamSpyPiMethods(unittest.TestCase):
 
     def test_get_example_api_parameters(self):
         example_api_parameters = steamspypi.api.get_example_api_parameters()
-        self.assertTrue(all([request in example_api_parameters for request in ['request', 'appid', 'genre', 'tag']]))
+        self.assertTrue(all([request in example_api_parameters for request in ['request', 'appid', 'genre', 'tag', 'page']]))
 
     def test_print_data(self):
         data_request = dict()
