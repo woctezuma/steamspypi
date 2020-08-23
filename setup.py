@@ -9,14 +9,14 @@ setup(
     install_requires=[
         'requests',
     ],
-    version='1.0.0',
+    version='1.0.1',
     description='SteamSpy API on PyPI',
     long_description='SteamSpyPI: an API for SteamSpy, written in Python 3.',
     long_description_content_type='text/x-rst',
     author='Wok',
     author_email='wok@tuta.io',
     url='https://github.com/woctezuma/steamspypi',
-    download_url='https://github.com/woctezuma/steamspypi/archive/1.0.0.tar.gz',
+    download_url='https://github.com/woctezuma/steamspypi/archive/1.0.1.tar.gz',
     keywords=['steam', 'steamspy', 'api'],
     classifiers=[
         'Development Status :: 5 - Production/Stable',
