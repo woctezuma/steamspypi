@@ -1,3 +1,4 @@
+import time
 import unittest
 
 import steamspypi.api
@@ -82,6 +83,9 @@ class TestSteamSpyPiMethods(unittest.TestCase):
         self.assertGreater(len(data), 0)
 
     def test_load(self):
+        # Because of rate-limits, try to ensure that test_download_all() was called at least 1 minute ago:
+        cooldown_duration = 70  # 1 minute plus cushion
+        time.sleep(cooldown_duration)
         # Download
         self.assertTrue(steamspypi.api.load())
         # Load from cache
