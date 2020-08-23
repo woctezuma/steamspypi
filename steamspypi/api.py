@@ -1,4 +1,8 @@
 def _fix_request(data_request):
+    if 'page' in data_request:
+        # Make sure pages are strings, not integers.
+        data_request['page'] = str(data_request['page'])
+
     if 'appid' in data_request:
         # Make sure appid are strings, not integers.
         data_request['appid'] = str(data_request['appid'])
@@ -65,6 +69,7 @@ def get_example_api_parameters():
         'appid': '730',
         'genre': 'Early Access',
         'tag': 'Early Access',
+        'page': '0',
     }
 
     return default_api_parameters
@@ -76,6 +81,7 @@ def _get_api_parameters():
         'appid',
         'genre',
         'tag',
+        'page',
     ]
 
     return api_parameters
@@ -90,7 +96,7 @@ def _get_api_request_requirements():
         'top100in2weeks': [],
         'top100forever': [],
         'top100owned': [],
-        'all': [],
+        'all': ['page'],
     }
 
     return api_request_values
@@ -163,6 +169,8 @@ def load(data_filename=None):
         # Download Steam's whole catalog of applications
         data_request = dict()
         data_request['request'] = 'all'
+        data_request['page'] = '0'
+        print("Limited to 1000 games for this request (page={})".format(data_request['page']))
 
         data = download(data_request)
 
