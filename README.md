@@ -131,3 +131,7 @@ data_request['request'] = 'top100owned'
 
 data = steamspypi.download(data_request)
 ```
+
+## References
+
+-   [`gamedatacrunch`](https://github.com/woctezuma/gamedatacrunch)@[PyPI](https://pypi.org/project/gamedatacrunch/): an API to download data through [GameDataCrunch API](https://www.gamedatacrunch.com/).
