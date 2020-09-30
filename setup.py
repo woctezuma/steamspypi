@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name='steamspypi',
-    version='1.0.2',
+    version='1.1.0',
     author='Wok',
     author_email='wok@tuta.io',
     description='SteamSpy API on PyPI',
@@ -13,7 +13,7 @@ setuptools.setup(
     long_description=long_description,
     long_description_content_type="text/markdown",
     url='https://github.com/woctezuma/steamspypi',
-    download_url='https://github.com/woctezuma/steamspypi/archive/1.0.2.tar.gz',
+    download_url='https://github.com/woctezuma/steamspypi/archive/1.1.0.tar.gz',
     packages=setuptools.find_packages(),
     install_requires=[
         'requests',
