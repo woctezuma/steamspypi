@@ -1,31 +1,17 @@
 # SteamSpyPI: an API for SteamSpy
 
-[![PyPI status][PyPI image]][PyPI] [![Build status][Build image]][Build] [![Updates][Dependency image]][PyUp] [![Python 3][Python3 image]][PyUp] [![Code coverage][Coveralls image]][Coveralls] [![Code coverage BIS][Codecov image]][Codecov]  [![Code Quality][codacy image]][codacy]
-
-  [PyPI]: https://pypi.python.org/pypi/steamspypi
-  [PyPI image]: https://badge.fury.io/py/steamspypi.svg
-
-  [Build]: https://travis-ci.org/woctezuma/steamspypi
-  [Build image]: https://travis-ci.org/woctezuma/steamspypi.svg?branch=master
-
-  [PyUp]: https://pyup.io/repos/github/woctezuma/steamspypi/
-  [Dependency image]: https://pyup.io/repos/github/woctezuma/steamspypi/shield.svg
-  [Python3 image]: https://pyup.io/repos/github/woctezuma/steamspypi/python-3-shield.svg
-
-  [Coveralls]: https://coveralls.io/github/woctezuma/steamspypi?branch=master
-  [Coveralls image]: https://coveralls.io/repos/github/woctezuma/steamspypi/badge.svg?branch=master
-
-  [Codecov]: https://codecov.io/gh/woctezuma/steamspypi
-  [Codecov image]: https://codecov.io/gh/woctezuma/steamspypi/branch/master/graph/badge.svg
-
-  [codacy]: https://www.codacy.com/app/woctezuma/steamspypi
-  [codacy image]: https://api.codacy.com/project/badge/Grade/9663fc7c6fda4b3fb8769d6e5e9725e5 
+[![PyPI status][pypi-image]][pypi]
+[![Build status][build-image]][build]
+[![Updates][dependency-image]][pyup]
+[![Python 3][python3-image]][pyup]
+[![Code coverage][codecov-image]][codecov]
+[![Code Quality][codacy-image]][codacy]
   
-This repository contains Python code to download data through [SteamSpy API](https://steamspy.com/api.php).
+This repository contains Python code to download data through [SteamSpy API][steamspy-api-docs].
 
 ## Installation
 
-The code is packaged for [PyPI](https://pypi.org/project/steamspypi/), so that the installation consists in running:
+The code is packaged for [PyPI][steamspy-pypi], so that the installation consists in running:
 
 ```bash
 pip install steamspypi
@@ -134,4 +120,34 @@ data = steamspypi.download(data_request)
 
 ## References
 
--   [`gamedatacrunch`](https://github.com/woctezuma/gamedatacrunch)@[PyPI](https://pypi.org/project/gamedatacrunch/): an API to download data through [GameDataCrunch API](https://www.gamedatacrunch.com/).
+-   [`gamedatacrunch`][gamedatacrunch-api]@[PyPI][gamedatacrunch-pypi]: an API to download data through [GameDataCrunch API][gamedatacrunch].
+
+<!-- Definitions -->
+
+[gamedatacrunch]: <https://www.gamedatacrunch.com>
+[steamspy-api]: <https://github.com/woctezuma/steamspypi>
+[steam-api]: <https://steamapi.xpaw.me/#ISteamApps/GetAppList>
+
+[steamspy-api-docs]: <https://steamspy.com/api.php>
+[steamspy-pypi]: <https://pypi.org/project/steamspypi/>
+[gamedatacrunch-api]: <https://github.com/woctezuma/gamedatacrunch>
+[gamedatacrunch-pypi]: <https://pypi.org/project/gamedatacrunch/>
+
+<!-- Definitions for badges -->
+
+[pypi]: <https://pypi.python.org/pypi/steamspypi>
+[pypi-image]: <https://badge.fury.io/py/steamspypi.svg>
+
+[build]: <https://github.com/woctezuma/steamspypi/actions>
+[build-image]: <https://github.com/woctezuma/steamspypi/workflows/Python package/badge.svg?branch=master>
+[publish-image]: <https://github.com/woctezuma/steamspypi/workflows/Upload Python Package/badge.svg?branch=master>
+
+[pyup]: <https://pyup.io/repos/github/woctezuma/steamspypi/>
+[dependency-image]: <https://pyup.io/repos/github/woctezuma/steamspypi/shield.svg>
+[python3-image]: <https://pyup.io/repos/github/woctezuma/steamspypi/python-3-shield.svg>
+
+[codecov]: <https://codecov.io/gh/woctezuma/steamspypi>
+[codecov-image]: <https://codecov.io/gh/woctezuma/steamspypi/branch/master/graph/badge.svg>
+
+[codacy]: <https://www.codacy.com/app/woctezuma/steamspypi>
+[codacy-image]: <https://api.codacy.com/project/badge/Grade/9663fc7c6fda4b3fb8769d6e5e9725e5>
