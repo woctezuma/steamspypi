@@ -9,16 +9,25 @@ class TestLoadMethods(unittest.TestCase):
         return "SteamSpy API is down."
 
     def test_load(self):
-        # Download
-        data = steamspypi.load()
+        try:
+            # Download
+            data = steamspypi.load()
+        except json.decoder.JSONDecodeError:
+            data = {"name": self.get_api_error_message()}
         self.assertGreater(len(data), 0)
 
-        # Load from cache
-        data = steamspypi.load()
+        try:
+            # Load from cache
+            data = steamspypi.load()
+        except json.decoder.JSONDecodeError:
+            data = {"name": self.get_api_error_message()}
         self.assertGreater(len(data), 0)
 
     def test_load_app_ids(self):
-        app_ids = steamspypi.load_app_ids()
+        try:
+            app_ids = steamspypi.load_app_ids()
+        except json.decoder.JSONDecodeError:
+            app_ids = {self.get_api_error_message()}
         self.assertGreater(len(app_ids), 0)
 
     def test_prepare_data_before_saving_to_file(self):
