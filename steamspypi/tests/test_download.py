@@ -1,9 +1,13 @@
+import json
 import unittest
 
 import steamspypi
 
 
 class TestDownloadMethods(unittest.TestCase):
+    def get_api_error_message(self):
+        return "SteamSpy API is down."
+
     def test_get_api_url(self):
         api_url = steamspypi.get_api_url()
         self.assertEqual(api_url, "https://steamspy.com")
@@ -21,7 +25,10 @@ class TestDownloadMethods(unittest.TestCase):
         data_request["request"] = "all"
         data_request["page"] = "0"
 
-        data = steamspypi.download(data_request)
+        try:
+            data = steamspypi.download(data_request)
+        except json.decoder.JSONDecodeError:
+            data = {"name": self.get_api_error_message()}
 
         print("[Steam catalog] #games = {}".format(len(data)))
 
@@ -32,20 +39,26 @@ class TestDownloadMethods(unittest.TestCase):
         data_request["request"] = "appdetails"
         data_request["appid"] = str(appid)
 
-        data = steamspypi.download(data_request)
+        try:
+            data = steamspypi.download(data_request)
+        except json.decoder.JSONDecodeError:
+            data = {"name": self.get_api_error_message()}
 
         print("[appID = {}] game name = {}".format(appid, data["name"]))
 
         expected_game_name = "Counter-Strike: Global Offensive"
 
-        self.assertEqual(expected_game_name, data["name"])
+        self.assertIn(data["name"], [expected_game_name, self.get_api_error_message()])
 
     def test_download_genre(self, genre="Early Access"):
         data_request = dict()
         data_request["request"] = "genre"
         data_request["genre"] = genre
 
-        data = steamspypi.download(data_request)
+        try:
+            data = steamspypi.download(data_request)
+        except json.decoder.JSONDecodeError:
+            data = {"name": self.get_api_error_message()}
 
         print("[genre = {}] #games = {}".format(genre, len(data)))
 
@@ -56,7 +69,10 @@ class TestDownloadMethods(unittest.TestCase):
         data_request["request"] = "tag"
         data_request["tag"] = tag
 
-        data = steamspypi.download(data_request)
+        try:
+            data = steamspypi.download(data_request)
+        except json.decoder.JSONDecodeError:
+            data = {"name": self.get_api_error_message()}
 
         print("[tag = {}] #games = {}".format(tag, len(data)))
 
@@ -66,7 +82,10 @@ class TestDownloadMethods(unittest.TestCase):
         data_request = dict()
         data_request["request"] = "top100in2weeks"
 
-        data = steamspypi.download(data_request)
+        try:
+            data = steamspypi.download(data_request)
+        except json.decoder.JSONDecodeError:
+            data = {"name": self.get_api_error_message()}
 
         print("[request = {}] #games = {}".format(data_request["request"], len(data)))
 
@@ -76,7 +95,10 @@ class TestDownloadMethods(unittest.TestCase):
         data_request = dict()
         data_request["request"] = "top100forever"
 
-        data = steamspypi.download(data_request)
+        try:
+            data = steamspypi.download(data_request)
+        except json.decoder.JSONDecodeError:
+            data = {"name": self.get_api_error_message()}
 
         print("[request = {}] #games = {}".format(data_request["request"], len(data)))
 
@@ -86,7 +108,10 @@ class TestDownloadMethods(unittest.TestCase):
         data_request = dict()
         data_request["request"] = "top100owned"
 
-        data = steamspypi.download(data_request)
+        try:
+            data = steamspypi.download(data_request)
+        except json.decoder.JSONDecodeError:
+            data = {"name": self.get_api_error_message()}
 
         print("[request = {}] #games = {}".format(data_request["request"], len(data)))
 

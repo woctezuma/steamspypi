@@ -1,9 +1,13 @@
+import json
 import unittest
 
 import steamspypi
 
 
 class TestLoadMethods(unittest.TestCase):
+    def get_api_error_message(self):
+        return "SteamSpy API is down."
+
     def test_load(self):
         # Download
         data = steamspypi.load()
@@ -35,7 +39,10 @@ class TestLoadMethods(unittest.TestCase):
         data_request["request"] = "appdetails"
         data_request["appid"] = "730"
 
-        data = steamspypi.download(data_request)
+        try:
+            data = steamspypi.download(data_request)
+        except json.decoder.JSONDecodeError:
+            data = {"name": self.get_api_error_message()}
 
         self.assertTrue(steamspypi.print_data(data))
 
