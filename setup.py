@@ -21,7 +21,7 @@ setuptools.setup(
     test_suite='nose.collector',
     tests_require=['nose'],
     classifiers=[
-        'Development Status :: 5 - Production/Stable',
+        'Development Status :: 2 - Pre-Alpha',
         'Topic :: Games/Entertainment',
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
