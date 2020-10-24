@@ -21,10 +21,7 @@ class TestDownloadMethods(unittest.TestCase):
         self.assertDictEqual(data_request, {"request": "all", "page": "0"})
 
     def test_download_all(self):
-        data_request = dict()
-        data_request["request"] = "all"
-        data_request["page"] = "0"
-
+        data_request = {"request": "all", "page": "0"}
         try:
             data = steamspypi.download(data_request)
         except json.decoder.JSONDecodeError:
@@ -35,10 +32,7 @@ class TestDownloadMethods(unittest.TestCase):
         self.assertGreater(len(data), 0)
 
     def test_download_appdetails(self, appid=730):
-        data_request = dict()
-        data_request["request"] = "appdetails"
-        data_request["appid"] = str(appid)
-
+        data_request = {"request": "appdetails", "appid": str(appid)}
         try:
             data = steamspypi.download(data_request)
         except json.decoder.JSONDecodeError:
@@ -51,10 +45,7 @@ class TestDownloadMethods(unittest.TestCase):
         self.assertIn(data["name"], [expected_game_name, self.get_api_error_message()])
 
     def test_download_genre(self, genre="Early Access"):
-        data_request = dict()
-        data_request["request"] = "genre"
-        data_request["genre"] = genre
-
+        data_request = {"request": "genre", "genre": genre}
         try:
             data = steamspypi.download(data_request)
         except json.decoder.JSONDecodeError:
@@ -65,10 +56,7 @@ class TestDownloadMethods(unittest.TestCase):
         self.assertGreater(len(data), 0)
 
     def test_download_tag(self, tag="Early Access"):
-        data_request = dict()
-        data_request["request"] = "tag"
-        data_request["tag"] = tag
-
+        data_request = {"request": "tag", "tag": tag}
         try:
             data = steamspypi.download(data_request)
         except json.decoder.JSONDecodeError:
@@ -79,9 +67,7 @@ class TestDownloadMethods(unittest.TestCase):
         self.assertGreater(len(data), 0)
 
     def test_download_top100in2weeks(self):
-        data_request = dict()
-        data_request["request"] = "top100in2weeks"
-
+        data_request = {"request": "top100in2weeks"}
         try:
             data = steamspypi.download(data_request)
         except json.decoder.JSONDecodeError:
@@ -92,9 +78,7 @@ class TestDownloadMethods(unittest.TestCase):
         self.assertGreater(len(data), 0)
 
     def test_download_top100forever(self):
-        data_request = dict()
-        data_request["request"] = "top100forever"
-
+        data_request = {"request": "top100forever"}
         try:
             data = steamspypi.download(data_request)
         except json.decoder.JSONDecodeError:
@@ -105,9 +89,7 @@ class TestDownloadMethods(unittest.TestCase):
         self.assertGreater(len(data), 0)
 
     def test_download_top100owned(self):
-        data_request = dict()
-        data_request["request"] = "top100owned"
-
+        data_request = {"request": "top100owned"}
         try:
             data = steamspypi.download(data_request)
         except json.decoder.JSONDecodeError:
@@ -118,9 +100,7 @@ class TestDownloadMethods(unittest.TestCase):
         self.assertGreater(len(data), 0)
 
     def test_cancel_download(self):
-        data_request = dict()
-        data_request["request"] = "Hello, world!"
-
+        data_request = {"request": "Hello, world!"}
         self.assertEqual(len(steamspypi.download(data_request)), 0)
 
 

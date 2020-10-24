@@ -1,13 +1,11 @@
 def get_api_parameters():
-    api_parameters = [
+    return [
         "request",
         "appid",
         "genre",
         "tag",
         "page",
     ]
-
-    return api_parameters
 
 
 def get_api_request_requirements():

@@ -11,21 +11,15 @@ def get_data_folder():
 
 
 def get_current_day_as_str(date_format="%Y%m%d"):
-    current_day_as_str = time.strftime(date_format)
-
-    return current_day_as_str
+    return time.strftime(date_format)
 
 
 def get_file_name_suffix():
-    file_name_suffix = "_steamspy.json"
-
-    return file_name_suffix
+    return "_steamspy.json"
 
 
 def get_cached_database_filename():
-    json_filename = get_current_day_as_str() + get_file_name_suffix()
-
-    return json_filename
+    return get_current_day_as_str() + get_file_name_suffix()
 
 
 if __name__ == "__main__":

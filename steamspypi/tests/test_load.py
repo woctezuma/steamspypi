@@ -44,10 +44,7 @@ class TestLoadMethods(unittest.TestCase):
         self.assertEqual(output_data, str(input_data).replace("'", '"'))
 
     def test_print_data(self):
-        data_request = dict()
-        data_request["request"] = "appdetails"
-        data_request["appid"] = "730"
-
+        data_request = {"request": "appdetails", "appid": "730"}
         try:
             data = steamspypi.download(data_request)
         except json.decoder.JSONDecodeError:
