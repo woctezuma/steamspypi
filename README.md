@@ -53,6 +53,14 @@ data = steamspypi.load()
 
 Please refer to [this for-loop][github-gist-download-all] to accomodate recent API rate-limits.
 
+Alternatively, if you know the number of pages, which was about 40 in August 2020:
+
+```python
+import steamspypi
+
+data = steamspypi.download_all_pages(num_pages=40)
+```
+
 ### Returns details for a given application.
 
 ```python
