@@ -4,7 +4,7 @@ import json
 import time
 from pathlib import Path
 
-import steamspypi
+from steamspypi.download import download
 
 
 def get_cooldown():
@@ -29,7 +29,7 @@ def download_a_single_page(page_no=0):
     data_request["request"] = "all"
     data_request["page"] = str(page_no)
 
-    data = steamspypi.download(data_request)
+    data = download(data_request)
 
     return data
 
