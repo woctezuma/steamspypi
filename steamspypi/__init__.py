@@ -1,6 +1,7 @@
 from .api import get_api_parameters, get_api_request_requirements
 from .compatibility import check_request, fix_request
 from .download import get_api_url, get_api_endpoint, get_default_data_request, download
+from .download_all import download_all_pages
 from .load import (
     prepare_data_before_saving_to_file,
     load,
