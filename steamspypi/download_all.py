@@ -75,5 +75,6 @@ def download_all_pages(num_pages):
 
 
 if __name__ == "__main__":
-    # TODO: one would have to figure out the number of pages, it should be close to 40 as of August 2020.
-    data = download_all_pages(num_pages=40)
+    # Caveat: one has to figure out the number of pages.
+    # NB: there are exactly 44 pages as of March 29, 2021.
+    data = download_all_pages(num_pages=44)
