@@ -45,6 +45,8 @@ def get_file_name(page_no):
 
 
 def download_all_pages(num_pages):
+    actual_num_pages = num_pages
+
     # Download
 
     for page_no in range(num_pages):
@@ -52,6 +54,12 @@ def download_all_pages(num_pages):
 
         if not Path(file_name).is_file():
             page_data = download_a_single_page(page_no=page_no)
+
+            if len(page_data) == 0:
+                # The for-loop starts at page_no==0, so the number of pages is page_no after an empty response.
+                actual_num_pages = page_no
+                print(f'Setting the number of pages from {num_pages} (input) to {actual_num_pages} (actual).')
+                break
 
             with open(file_name, "w", encoding="utf8") as f:
                 json.dump(page_data, f)
@@ -63,7 +71,7 @@ def download_all_pages(num_pages):
 
     data = dict()
 
-    for page_no in range(num_pages):
+    for page_no in range(actual_num_pages):
         file_name = get_file_name(page_no)
 
         with open(file_name, "r", encoding="utf8") as f:
