@@ -49,6 +49,10 @@ import steamspypi
 data = steamspypi.load()
 ```
 
+### Returns details for all of the games.
+
+Please refer to [this for-loop][github-gist-download-all] to accomodate recent API rate-limits.
+
 ### Returns details for a given application.
 
 ```python
@@ -132,6 +136,8 @@ data = steamspypi.download(data_request)
 [steamspy-pypi]: <https://pypi.org/project/steamspypi/>
 [gamedatacrunch-api]: <https://github.com/woctezuma/gamedatacrunch>
 [gamedatacrunch-pypi]: <https://pypi.org/project/gamedatacrunch/>
+
+[github-gist-download-all]: <https://gist.github.com/woctezuma/a8a9cbde6b03868b8631d2f436bbcfab>
 
 <!-- Definitions for badges -->
 
