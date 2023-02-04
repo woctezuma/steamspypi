@@ -22,7 +22,7 @@ def get_default_data_request():
     data_request["page"] = "0"
 
     print(
-        "Limited to 1000 games for this request (page={})".format(data_request["page"])
+        "Limited to 1000 games for this request (page={})".format(data_request["page"]),
     )
 
     return data_request

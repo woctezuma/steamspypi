@@ -58,7 +58,9 @@ def download_all_pages(num_pages):
             if len(page_data) == 0:
                 # The for-loop starts at page_no==0, so the number of pages is page_no after an empty response.
                 actual_num_pages = page_no
-                print(f'Setting the number of pages from {num_pages} (input) to {actual_num_pages} (actual).')
+                print(
+                    f'Setting the number of pages from {num_pages} (input) to {actual_num_pages} (actual).',
+                )
                 break
 
             with open(file_name, "w", encoding="utf8") as f:
