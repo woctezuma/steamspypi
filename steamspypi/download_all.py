@@ -63,7 +63,7 @@ def download_all_pages(num_pages):
                 )
                 break
 
-            with open(file_name, "w", encoding="utf8") as f:
+            with Path(file_name).open("w", encoding="utf8") as f:
                 json.dump(page_data, f)
 
             if page_no != (num_pages - 1):
@@ -76,7 +76,7 @@ def download_all_pages(num_pages):
     for page_no in range(actual_num_pages):
         file_name = get_file_name(page_no)
 
-        with open(file_name, encoding="utf8") as f:
+        with Path(file_name).open(encoding="utf8") as f:
             page_data = json.load(f)
 
             data.update(page_data)

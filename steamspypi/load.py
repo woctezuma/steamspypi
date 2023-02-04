@@ -1,4 +1,5 @@
 import json
+from pathlib import Path
 
 from steamspypi.download import download, get_default_data_request
 from steamspypi.utils import get_cached_database_filename, get_data_folder
@@ -9,7 +10,7 @@ def load(file_name=None, url=None):
         file_name = get_data_folder() + get_cached_database_filename()
 
     try:
-        with open(file_name, encoding="utf8") as f:
+        with Path(file_name).open(encoding="utf8") as f:
             data = json.load(f)
 
     except FileNotFoundError:
@@ -45,7 +46,7 @@ def prepare_data_before_saving_to_file(data_as_json):
 
 def print_data(data, save_filename=None):
     if save_filename is not None:
-        with open(save_filename, "w", encoding="utf8") as f:
+        with Path(save_filename).open("w", encoding="utf8") as f:
             json.dump(data, f)
 
     else:
