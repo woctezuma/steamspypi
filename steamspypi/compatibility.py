@@ -26,7 +26,7 @@ def check_request(data_request):
 
     for element in data_request:
         if element not in get_api_parameters():
-            print("Requested {} is not standard.".format(element))
+            print(f"Requested {element} is not standard.")
             is_request_correct = False
 
     try:
@@ -34,7 +34,7 @@ def check_request(data_request):
 
         for required_element in get_api_request_requirements()[main_request]:
             if required_element not in data_request:
-                print("Required {} is missing.".format(required_element))
+                print(f"Required {required_element} is missing.")
                 is_request_correct = False
     except KeyError:
         print("No request field could be found.")

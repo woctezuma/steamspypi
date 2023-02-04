@@ -17,7 +17,7 @@ def get_api_endpoint():
 
 def get_default_data_request():
     # Download Steam's whole catalog of applications
-    data_request = dict()
+    data_request = {}
     data_request["request"] = "all"
     data_request["page"] = "0"
 
@@ -42,10 +42,7 @@ def download(data_request, url=None):
         response = None
         print("Incorrect request: download is cancelled.")
 
-    if response is not None and response.ok:
-        data = response.json()
-    else:
-        data = dict()
+    data = response.json() if response is not None and response.ok else {}
 
     return data
 

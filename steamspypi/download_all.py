@@ -15,7 +15,7 @@ def get_cooldown():
 
 def get_some_sleep():
     cooldown = get_cooldown()
-    print("Sleeping for {} seconds on {}".format(cooldown, time.asctime()))
+    print(f"Sleeping for {cooldown} seconds on {time.asctime()}")
 
     time.sleep(cooldown)
 
@@ -23,9 +23,9 @@ def get_some_sleep():
 
 
 def download_a_single_page(page_no=0):
-    print("Downloading page={} on {}".format(page_no, time.asctime()))
+    print(f"Downloading page={page_no} on {time.asctime()}")
 
-    data_request = dict()
+    data_request = {}
     data_request["request"] = "all"
     data_request["page"] = str(page_no)
 
@@ -39,7 +39,7 @@ def get_file_name(page_no):
     date_format = "%Y%m%d"
     current_date = time.strftime(date_format)
 
-    file_name = "{}_steamspy_page_{}.json".format(current_date, page_no)
+    file_name = f"{current_date}_steamspy_page_{page_no}.json"
 
     return file_name
 
@@ -71,12 +71,12 @@ def download_all_pages(num_pages):
 
     # Aggregate
 
-    data = dict()
+    data = {}
 
     for page_no in range(actual_num_pages):
         file_name = get_file_name(page_no)
 
-        with open(file_name, "r", encoding="utf8") as f:
+        with open(file_name, encoding="utf8") as f:
             page_data = json.load(f)
 
             data.update(page_data)

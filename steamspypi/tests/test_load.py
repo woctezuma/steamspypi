@@ -44,7 +44,7 @@ class TestLoadMethods(unittest.TestCase):
         self.assertEqual(output_data, str(input_data).replace("'", '"'))
 
     def test_print_data(self):
-        data_request = dict()
+        data_request = {}
         data_request["request"] = "appdetails"
         data_request["appid"] = "730"
 

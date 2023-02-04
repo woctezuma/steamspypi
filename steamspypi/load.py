@@ -1,7 +1,7 @@
 import json
 
-from steamspypi.download import get_default_data_request, download
-from steamspypi.utils import get_data_folder, get_cached_database_filename
+from steamspypi.download import download, get_default_data_request
+from steamspypi.utils import get_cached_database_filename, get_data_folder
 
 
 def load(file_name=None, url=None):
@@ -9,11 +9,11 @@ def load(file_name=None, url=None):
         file_name = get_data_folder() + get_cached_database_filename()
 
     try:
-        with open(file_name, "r", encoding="utf8") as f:
+        with open(file_name, encoding="utf8") as f:
             data = json.load(f)
 
     except FileNotFoundError:
-        print("Downloading and caching data from SteamSpy to {}".format(file_name))
+        print(f"Downloading and caching data from SteamSpy to {file_name}")
         data = download(get_default_data_request(), url=url)
 
         # Cache the json data to a local file
@@ -25,12 +25,12 @@ def load(file_name=None, url=None):
 def load_app_ids(file_name=None, url=None, verbose=True):
     data = load(file_name=file_name, url=url)
 
-    app_ids = [int(app_id) for app_id in data.keys()]
+    app_ids = [int(app_id) for app_id in data]
 
     app_ids = sorted(app_ids, key=int)
 
     if verbose:
-        print("#appIDs = {}".format(len(app_ids)))
+        print(f"#appIDs = {len(app_ids)}")
 
     return app_ids
 
