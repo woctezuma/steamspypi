@@ -48,7 +48,7 @@ class TestDownloadMethods(unittest.TestCase):
 
         expected_game_name = "Counter-Strike: Global Offensive"
 
-        assert data["name"] in [expected_game_name, self.get_api_error_message()]
+        assert data["name"] in (expected_game_name, self.get_api_error_message())
 
     def test_download_genre(self, genre="Early Access"):
         data_request = {}
