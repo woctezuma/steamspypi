@@ -39,9 +39,7 @@ def load_app_ids(file_name=None, url=None, verbose=True):
 def prepare_data_before_saving_to_file(data_as_json):
     # Enforce double-quotes instead of single-quotes.
     # Reference: https://stackoverflow.com/a/8710579/
-    data_as_str = json.dumps(data_as_json)
-
-    return data_as_str
+    return json.dumps(data_as_json)
 
 
 def print_data(data, save_filename=None):

@@ -16,7 +16,7 @@ class TestApiMethods(unittest.TestCase):
         api_parameters = steamspypi.get_api_parameters()
 
         for parameter in ground_truth:
-            self.assertIn(parameter, api_parameters)
+            assert parameter in api_parameters
 
     def test_get_api_request_requirements(self):
         ground_truth = {
@@ -32,7 +32,7 @@ class TestApiMethods(unittest.TestCase):
         api_request_values = steamspypi.get_api_request_requirements()
 
         for parameter, requirement in ground_truth.items():
-            self.assertIn(parameter, api_request_values.keys())
+            assert parameter in api_request_values
             self.assertListEqual(requirement, api_request_values[parameter])
 
 

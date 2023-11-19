@@ -10,11 +10,11 @@ class TestDownloadMethods(unittest.TestCase):
 
     def test_get_api_url(self):
         api_url = steamspypi.get_api_url()
-        self.assertEqual(api_url, "https://steamspy.com")
+        assert api_url == "https://steamspy.com"
 
     def test_get_api_endpoint(self):
         api_endpoint = steamspypi.get_api_endpoint()
-        self.assertEqual(api_endpoint, "/api.php")
+        assert api_endpoint == "/api.php"
 
     def test_get_default_data_request(self):
         data_request = steamspypi.get_default_data_request()
@@ -32,7 +32,7 @@ class TestDownloadMethods(unittest.TestCase):
 
         print(f"[Steam catalog] #games = {len(data)}")
 
-        self.assertGreater(len(data), 0)
+        assert len(data) > 0
 
     def test_download_appdetails(self, appid=730):
         data_request = {}
@@ -48,7 +48,7 @@ class TestDownloadMethods(unittest.TestCase):
 
         expected_game_name = "Counter-Strike: Global Offensive"
 
-        self.assertIn(data["name"], [expected_game_name, self.get_api_error_message()])
+        assert data["name"] in [expected_game_name, self.get_api_error_message()]
 
     def test_download_genre(self, genre="Early Access"):
         data_request = {}
@@ -62,7 +62,7 @@ class TestDownloadMethods(unittest.TestCase):
 
         print(f"[genre = {genre}] #games = {len(data)}")
 
-        self.assertGreater(len(data), 0)
+        assert len(data) > 0
 
     def test_download_tag(self, tag="Early Access"):
         data_request = {}
@@ -76,7 +76,7 @@ class TestDownloadMethods(unittest.TestCase):
 
         print(f"[tag = {tag}] #games = {len(data)}")
 
-        self.assertGreater(len(data), 0)
+        assert len(data) > 0
 
     def test_download_top100in2weeks(self):
         data_request = {}
@@ -89,7 +89,7 @@ class TestDownloadMethods(unittest.TestCase):
 
         print("[request = {}] #games = {}".format(data_request["request"], len(data)))
 
-        self.assertGreater(len(data), 0)
+        assert len(data) > 0
 
     def test_download_top100forever(self):
         data_request = {}
@@ -102,7 +102,7 @@ class TestDownloadMethods(unittest.TestCase):
 
         print("[request = {}] #games = {}".format(data_request["request"], len(data)))
 
-        self.assertGreater(len(data), 0)
+        assert len(data) > 0
 
     def test_download_top100owned(self):
         data_request = {}
@@ -115,13 +115,13 @@ class TestDownloadMethods(unittest.TestCase):
 
         print("[request = {}] #games = {}".format(data_request["request"], len(data)))
 
-        self.assertGreater(len(data), 0)
+        assert len(data) > 0
 
     def test_cancel_download(self):
         data_request = {}
         data_request["request"] = "Hello, world!"
 
-        self.assertEqual(len(steamspypi.download(data_request)), 0)
+        assert len(steamspypi.download(data_request)) == 0
 
 
 if __name__ == "__main__":

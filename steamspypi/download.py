@@ -4,15 +4,11 @@ from steamspypi.compatibility import check_request, fix_request
 
 
 def get_api_url():
-    api_url = "https://steamspy.com"
-
-    return api_url
+    return "https://steamspy.com"
 
 
 def get_api_endpoint():
-    api_endpoint = "/api.php"
-
-    return api_endpoint
+    return "/api.php"
 
 
 def get_default_data_request():
@@ -42,9 +38,7 @@ def download(data_request, url=None):
         response = None
         print("Incorrect request: download is cancelled.")
 
-    data = response.json() if response is not None and response.ok else {}
-
-    return data
+    return response.json() if response is not None and response.ok else {}
 
 
 if __name__ == "__main__":

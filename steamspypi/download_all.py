@@ -8,9 +8,7 @@ from steamspypi.download import download
 
 
 def get_cooldown():
-    cooldown = 70  # 1 minute plus a cushion
-
-    return cooldown
+    return 70  # 1 minute plus a cushion
 
 
 def get_some_sleep():
@@ -18,8 +16,6 @@ def get_some_sleep():
     print(f"Sleeping for {cooldown} seconds on {time.asctime()}")
 
     time.sleep(cooldown)
-
-    return
 
 
 def download_a_single_page(page_no=0):
@@ -29,9 +25,7 @@ def download_a_single_page(page_no=0):
     data_request["request"] = "all"
     data_request["page"] = str(page_no)
 
-    data = download(data_request)
-
-    return data
+    return download(data_request)
 
 
 def get_file_name(page_no):
@@ -39,9 +33,7 @@ def get_file_name(page_no):
     date_format = "%Y%m%d"
     current_date = time.strftime(date_format)
 
-    file_name = f"{current_date}_steamspy_page_{page_no}.json"
-
-    return file_name
+    return f"{current_date}_steamspy_page_{page_no}.json"
 
 
 def download_all_pages(num_pages):
